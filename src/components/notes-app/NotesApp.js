@@ -6,15 +6,20 @@ import "./index.css";
 function NotesApp () {
   const [newNoteTitle, setNewNoteTitle] = useState('');
   const [newNoteStatus, setNewNoteStatus] = useState('');
+  const [notesList, setNotesList] = useState([]);
 
   const handleInputChange = (e, stateChangeFunction) => stateChangeFunction(e.target.value);
-  
+
+  const addNote = () => {
+    setNotesList(previous => [...previous, {title: newNoteTitle, status: newNoteStatus} ]);
+  }
+
   return (
     <div className="layout-column align-items-center justify-content-start">
       <section className="layout-row align-items-center justify-content-center mt-30">
         <NotesInput dataTestId={"input-note-name"} placeholder={"Note Title"} value={newNoteTitle} onChange={(e) => handleInputChange(e, setNewNoteTitle)}/>
         <NotesInput dataTestId={"input-note-status"} placeholder={"Note Status"} value={newNoteStatus} onChange={(e) => handleInputChange(e, setNewNoteStatus)}/>
-        <SubmitButton dataTestId={"submit-button"} label={"Add Note"} onClick={() => console.log('hello')}/>
+        <SubmitButton dataTestId={"submit-button"} label={"Add Note"} onClick={addNote}/>
       </section>
 
       <div className="mt-50">
