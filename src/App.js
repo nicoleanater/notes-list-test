@@ -1,7 +1,7 @@
 import React  from 'react';
 import './App.css';
 import 'h8k-components';
-import NotesApp from './components/notes-app/index.js';
+import NotesApp from './components/notes-app/NotesApp.js';
 
 const title = "Notes App";
 
