@@ -28,13 +28,13 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-.tabs .tab-item:active {
+.tabs .tab-item.active {
     background: white;
     position: relative;
     color: black;
 }
 
-.tabs .tab-item:active::before {
+.tabs .tab-item.active::before {
     opacity: 1;
 }
 

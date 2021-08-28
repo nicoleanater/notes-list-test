@@ -8,6 +8,7 @@ function NotesApp () {
   const [newNoteTitle, setNewNoteTitle] = useState('');
   const [newNoteStatus, setNewNoteStatus] = useState('');
   const [notesList, setNotesList] = useState([]);
+  const [currentFilter, setCurrentFilter] = useState('all');
 
   const handleInputChange = (e, stateChangeFunction) => stateChangeFunction(e.target.value);
 
@@ -22,6 +23,8 @@ function NotesApp () {
     setNewNoteStatus('');
   }
 
+  const isActive = (filter) =>  currentFilter === filter;
+
   return (
     <div className="layout-column align-items-center justify-content-start">
       <section className="layout-row align-items-center justify-content-center mt-30">
@@ -32,9 +35,9 @@ function NotesApp () {
 
       <div className="mt-50">
         <ul className="tabs">
-          <li className="tab-item slide-up-fade-in" data-testid="allButton">All</li>
-          <li className="tab-item slide-up-fade-in" data-testid="activeButton">Active</li>
-          <li className="tab-item slide-up-fade-in" data-testid="completedButton">Completed</li>
+          <li className={`tab-item slide-up-fade-in ${isActive('all') && 'active'}`} data-testid="allButton" onClick={() => setCurrentFilter('all')}>All</li>
+          <li className={`tab-item slide-up-fade-in ${isActive('active') && 'active'}`}  data-testid="activeButton" onClick={() => setCurrentFilter('active')}>Active</li>
+          <li className={`tab-item slide-up-fade-in ${isActive('completed') && 'active'}`}  data-testid="completedButton" onClick={() => setCurrentFilter('completed')}>Completed</li>
         </ul>
       </div>
       <div className="card w-40 pt-30 pb-8">
