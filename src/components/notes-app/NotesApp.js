@@ -11,6 +11,11 @@ function NotesApp () {
   const handleInputChange = (e, stateChangeFunction) => stateChangeFunction(e.target.value);
 
   const addNote = () => {
+    if (newNoteTitle ==='' && newNoteStatus === '') {
+      alert('Fill all the fields to add a new note');
+      return;
+    }
+    
     setNotesList(previous => [...previous, {title: newNoteTitle, status: newNoteStatus} ]);
     setNewNoteTitle('');
     setNewNoteStatus('');
