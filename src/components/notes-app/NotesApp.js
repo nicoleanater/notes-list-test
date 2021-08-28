@@ -12,6 +12,8 @@ function NotesApp () {
 
   const addNote = () => {
     setNotesList(previous => [...previous, {title: newNoteTitle, status: newNoteStatus} ]);
+    setNewNoteTitle('');
+    setNewNoteStatus('');
   }
 
   return (
