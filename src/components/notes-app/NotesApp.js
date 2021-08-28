@@ -48,7 +48,7 @@ function NotesApp () {
             <th>Status</th>
           </tr>
           </thead>
-          <NotesList list={notesList} />
+          <NotesList list={notesList} currentFilter={currentFilter} />
         </table>
       </div>
     </div>
