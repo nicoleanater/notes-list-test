@@ -18,7 +18,7 @@ function NotesApp () {
       return;
     }
 
-    setNotesList(previous => [...previous, {title: newNoteTitle, status: newNoteStatus} ]);
+    setNotesList(previous => [...previous, {title: newNoteTitle, status: newNoteStatus, addedOn: Date()} ]);
     setNewNoteTitle('');
     setNewNoteStatus('');
   }

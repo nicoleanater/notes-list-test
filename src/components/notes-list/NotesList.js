@@ -13,6 +13,8 @@ function NotesList ({ list, currentFilter }) {
     } else if (currentFilter === 'completed') {
       resultList = list.filter(item => item.status.toLowerCase() == 'completed');
     }
+
+    resultList.sort((firstItem, secondItem) => new Date(firstItem.addedOn) - new Date(secondItem.addedOn));
     
     return resultList;
   }
