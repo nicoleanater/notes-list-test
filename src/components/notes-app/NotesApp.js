@@ -1,14 +1,18 @@
-import React  from "react";
+import React, { useState }  from "react";
+import NotesInput from "../notes-input/NotesInput";
 import "./index.css";
 
 function NotesApp () {
+  const [newNoteTitle, setNewNoteTitle] = useState('');
+  const [newNoteStatus, setNewNoteStatus] = useState('');
+
+  const handleInputChange = (e, stateChangeFunction) => stateChangeFunction(e.target.value);
+  
   return (
     <div className="layout-column align-items-center justify-content-start">
       <section className="layout-row align-items-center justify-content-center mt-30">
-        <input data-testid="input-note-name" type="text" className="large mx-8"
-              placeholder="Note Title"/>
-        <input data-testid="input-note-status" type="text" className="large mx-8"
-              placeholder="Note Status"/>
+        <NotesInput dataTestId={"input-note-name"} placeholder={"Note Title"} value={newNoteTitle} onChange={(e) => handleInputChange(e, setNewNoteTitle)}/>
+        <NotesInput dataTestId={"input-note-status"} placeholder={"Note Status"} value={newNoteStatus} onChange={(e) => handleInputChange(e, setNewNoteStatus)}/>
         <button className="" data-testid="submit-button">Add Note</button>
       </section>
 
