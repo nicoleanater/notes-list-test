@@ -8,6 +8,53 @@ function NotesApp () {
   const [newNoteTitle, setNewNoteTitle] = useState('');
   const [newNoteStatus, setNewNoteStatus] = useState('');
   const [notesList, setNotesList] = useState([]);
+  // const [notesList, setNotesList] = useState([
+  //   {
+  //     title: 'Different 2',
+  //     status: 'Different',
+  //     addedOn: new Date('2021-08-28T00:36:02')
+  //   },
+  //   {
+  //     title: 'Different 1',
+  //     status: 'Different',
+  //     addedOn: new Date('2021-08-28T00:35:02')
+  //   },
+  //   {
+  //     title: 'Completed last',
+  //     status: 'Completed',
+  //     addedOn: new Date('2021-08-28T00:46:02')
+  //   },
+  //   {
+  //     title: 'Newer',
+  //     status: 'Newer',
+  //     addedOn: new Date('2021-08-28T00:45:02')
+  //   },
+  //   {
+  //     title: 'New',
+  //     status: 'New',
+  //     addedOn: new Date('2021-08-28T00:39:02')
+  //   },
+  //   {
+  //     title: 'Completed 2',
+  //     status: 'Completed',
+  //     addedOn: new Date('2021-08-28T00:37:15')
+  //   },
+  //   {
+  //     title: 'Completed 1',
+  //     status: 'Completed',
+  //     addedOn: new Date('2021-08-28T00:37:10')
+  //   },
+  //   {
+  //     title: 'Active 2',
+  //     status: 'Active',
+  //     addedOn: new Date('2021-08-28T00:37:02')
+  //   },
+  //   {
+  //     title: 'Active 1',
+  //     status: 'Active',
+  //     addedOn: new Date('2021-08-28T00:36:02')
+  //   },
+  // ]);
   const [currentFilter, setCurrentFilter] = useState('all');
 
   const handleInputChange = (e, stateChangeFunction) => stateChangeFunction(e.target.value);

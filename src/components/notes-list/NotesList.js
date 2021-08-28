@@ -4,19 +4,23 @@ function NotesList ({ list, currentFilter }) {
   const [filteredList, setFilteredList] = useState([]);
 
   const getFilteredList = () => {
-    let resultList = null;
 
-    if (currentFilter === 'all') {
-      resultList = list;
-    } else if (currentFilter === 'active') {
-      resultList = list.filter(item => item.status.toLowerCase() == 'active');
-    } else if (currentFilter === 'completed') {
-      resultList = list.filter(item => item.status.toLowerCase() == 'completed');
+    const activeList = orderArrayByDate(list.filter(item => item.status.toLowerCase() === 'active'));
+    const completedList = orderArrayByDate(list.filter(item => item.status.toLowerCase() === 'completed'));
+    const restList = orderArrayByDate(list.filter(item => item.status.toLowerCase() !== 'active' && item.status.toLowerCase() !== 'completed'));
+
+    switch (currentFilter) {
+      case 'all':
+        return [...activeList, ...completedList, ...restList];
+      case 'active':
+        return activeList;
+      case 'completed':
+        return completedList;
     }
+  }
 
-    resultList.sort((firstItem, secondItem) => new Date(firstItem.addedOn) - new Date(secondItem.addedOn));
-    
-    return resultList;
+  const orderArrayByDate = (array) => {
+    return array.sort((firstItem, secondItem) => new Date(firstItem.addedOn) - new Date(secondItem.addedOn));
   }
 
   useEffect(() => {
