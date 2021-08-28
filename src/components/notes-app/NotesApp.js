@@ -1,5 +1,6 @@
 import React, { useState }  from "react";
 import NotesInput from "../notes-input/NotesInput";
+import NotesList from "../notes-list/NotesList";
 import SubmitButton from "../submit-button/SubmitButton";
 import "./index.css";
 
@@ -15,7 +16,7 @@ function NotesApp () {
       alert('Fill all the fields to add a new note');
       return;
     }
-    
+
     setNotesList(previous => [...previous, {title: newNoteTitle, status: newNoteStatus} ]);
     setNewNoteTitle('');
     setNewNoteStatus('');
@@ -44,12 +45,7 @@ function NotesApp () {
             <th>Status</th>
           </tr>
           </thead>
-          <tbody data-testid="noteList">
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
+          <NotesList list={notesList} />
         </table>
       </div>
     </div>
