@@ -1,5 +1,6 @@
 import React, { useState }  from "react";
 import NotesInput from "../notes-input/NotesInput";
+import SubmitButton from "../submit-button/SubmitButton";
 import "./index.css";
 
 function NotesApp () {
@@ -13,7 +14,7 @@ function NotesApp () {
       <section className="layout-row align-items-center justify-content-center mt-30">
         <NotesInput dataTestId={"input-note-name"} placeholder={"Note Title"} value={newNoteTitle} onChange={(e) => handleInputChange(e, setNewNoteTitle)}/>
         <NotesInput dataTestId={"input-note-status"} placeholder={"Note Status"} value={newNoteStatus} onChange={(e) => handleInputChange(e, setNewNoteStatus)}/>
-        <button className="" data-testid="submit-button">Add Note</button>
+        <SubmitButton dataTestId={"submit-button"} label={"Add Note"} onClick={() => console.log('hello')}/>
       </section>
 
       <div className="mt-50">
